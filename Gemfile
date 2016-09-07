@@ -36,7 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
-  gem("shoulda-matchers", '~> 2.0')
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'capybara'
 end
 
