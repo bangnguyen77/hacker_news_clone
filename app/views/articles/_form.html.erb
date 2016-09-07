@@ -1,0 +1,12 @@
+<%= render('layouts/errors', :object => @article) %>
+
+<%= form_for @article do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  <%= f.label :user %>
+  <%= f.text_field :user %>
+  <%= f.hidden_field(:points, :value => 100) %>
+  <p><%= f.submit %></p>
+<% end %>
