@@ -1,6 +1,17 @@
 <h1><%= @article.title %></h1>
 
-<p><%= link_to "Edit", edit_article_path(@article) %></p>
-<p><%= link_to "Delete", article_path(@article),
-                          :data => {:confirm => "Are you sure?",
-                                    :method => "delete"} %></p>
+<% if @article.comments.any? %>
+  <h4>These are the comments for this article:</h4>
+
+  <ul>
+    <% @article.comments.each do |comment| %>
+    <li>
+        <%= comment.text %> |
+        <%= link_to "Edit", edit_article_comment_path(@article, comment) %> |
+        <%= link_to "Delete", article_comment_path(@article, comment),
+                                :data => {:confirm => "Are you sure?",
+                                              :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
