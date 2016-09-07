@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all.order('points DESC')
+    @articles = Article.all.order('(points - time_offset) DESC')
   end
 
   def show
@@ -41,6 +41,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :link, :user, :points)
+    params.require(:article).permit(:title, :link, :user, :points, :time_offset)
   end
 end
